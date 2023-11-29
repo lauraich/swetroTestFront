@@ -3,6 +3,11 @@ import { Outliers } from 'src/app/models/outliers';
 import { DataAnalysisService } from 'src/app/services/data-analysis.service';
 import Swal from 'sweetalert2';
 
+/**
+ * @class PatternsComponent
+ * @description
+ * The PatternsComponent class represents a component dedicated to handling user patterns and data analysis.
+ */
 @Component({
   selector: 'app-patterns',
   templateUrl: './patterns.component.html',
@@ -10,42 +15,76 @@ import Swal from 'sweetalert2';
 })
 export class PatternsComponent {
 
-  files:File[] =[]
+  /**
+  * @property {File[]} files - An array to store selected files for data processing.
+  */
+  files: File[] = []
 
-  resultsUserPatterns:Outliers[] = []
+  /**
+  * @property {Outliers[]} resultsUserPatterns - An array to store the results of user patterns data analysis.
+  */
+  resultsUserPatterns: Outliers[] = []
 
-  loading=false
+  /**
+  * @property {boolean} loading - A flag to indicate whether data processing is in progress.
+  */
+  loading = false
 
-  constructor(private dataAnalysisService:DataAnalysisService){}
+  /**
+   * @constructor
+   * @param {DataAnalysisService} dataAnalysisService - An instance of the DataAnalysisService for processing data.
+   */
+  constructor(private dataAnalysisService: DataAnalysisService) { }
 
-  setFiles(event: any){
+  /**
+  * @method setFiles
+  * @description
+  * Sets the selected files for user patterns data processing when the user selects files through the file input.
+  *
+  * @param {any} event - The event object triggered by the file input change.
+  */
+  setFiles(event: any) {
     const files: File[] = Array.from(event.target.files);
     if (files.length > 0) {
-      this.files=files      
+      this.files = files
     }
   }
 
-  deleteFile(index:number){
-    this.files.splice(index,1);
+  /**
+  * @method deleteFile
+  * @description
+  * Deletes a selected file from the list of files for user patterns data processing.
+  *
+  * @param {number} index - The index of the file to be deleted.
+  */
+  deleteFile(index: number) {
+    this.files.splice(index, 1);
   }
 
-  processData(){
-    if(this.files.length>0){
-      this.loading=true
+  /**
+  * @method processData
+  * @description
+  * Initiates the data processing for user patterns by calling the DataAnalysisService with the selected files.
+  * Displays the results of the user patterns analysis and handles errors if they occur.
+  *
+  */
+  processData() {
+    if (this.files.length > 0) {
+      this.loading = true
 
-      this.dataAnalysisService.getUsersPatterns(this.files).subscribe(response=>{
-        this.loading=false
-        if(response){
-          this.resultsUserPatterns= response.results                   
+      this.dataAnalysisService.getUsersPatterns(this.files).subscribe(response => {
+        this.loading = false
+        if (response) {
+          this.resultsUserPatterns = response.results
         }
-      },(err)=>{
-        this.loading=false
+      }, (err) => {
+        this.loading = false
         Swal.fire({
-          title:"An error has occurred",
-          text:err.error.error,
-          icon:"error"
+          title: "An error has occurred",
+          text: err.error.error,
+          icon: "error"
         })
-        
+
       })
     }
   }

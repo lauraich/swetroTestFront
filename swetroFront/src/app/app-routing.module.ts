@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
 import { PatternsComponent } from './components/patterns/patterns.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
