@@ -8,7 +8,7 @@ The web application consists of two tabs: Dashboard and Patterns. The first one 
 
 The patterns tab allows entering the file or files in .xlsx format and then makes use of the [check_patterns service](https://github.com/lauraich/swetroTest/tree/main#logic-of-check_patterns) of the developed API to obtain the records that have an unusual pattern according to the Isolation Forest algorithm.
 
-For both tabs the results are displayed at the bottom of the page where they will be shown as a list and each record in the list will have two buttons: the first one called "Record" to get the reasons why it was classified as "cheater" along with the values of the record and the second one called "Average" to get more information about that user particularly to observe the average of its metrics.
+For both tabs the results are displayed at the bottom of the page where they will be shown as a list and each record in the list will have two buttons: the first one called "Record" to gets the reasons why it was classified as "cheater" or with an unusual pattern, along with the values of the record and the second one called "Average" to get more information about that user particularly to observe the average of its metrics.
 
 ## Installation
 
