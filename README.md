@@ -2,7 +2,7 @@
 
 ## Description
 
-The web application was developed using the Angular framework and tailwind css for the styles.
+The web application was developed using the Angular framework and tailwind css for the styles. This web application is responsive.
 
 The web application consists of two tabs: Dashboard and Patterns. The first one allows entering the file or files in .xlsx format and then makes use of the [process_data service](https://github.com/lauraich/swetroTest/tree/main#logic-of-process_data) of the API developed to obtain the records that are considered as "cheaters".
 
