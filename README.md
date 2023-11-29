@@ -12,6 +12,8 @@ For both tabs the results are displayed at the bottom of the page where they wil
 
 ## Installation
 
+Note: all commands must be executed in the root project.
+
 First you will need to install the dependencies, to do this run the following command in your terminal:
 
 ```bash
